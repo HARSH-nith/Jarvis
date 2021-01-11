@@ -1,0 +1,133 @@
+ Stimulation 1
+
+int led = 10;
+void setup(){
+  pinMode(led,OUTPUT);
+}
+
+void loop(){
+  digitalWrite(led,HIGH);
+  delay(1000);
+  digitalWrite(led,LOW);
+  delay(1000);
+}
+
+int led = 10;
+void setup(){
+  pinMode(led,OUTPUT);
+}
+Stimulation 2
+
+void loop(){
+  analogWrite(led,255);
+}
+int led = 10;
+void setup(){
+  pinMode(led,OUTPUT);
+}
+Stimulation 3
+void loop(){
+  for(int i=0;i<=255; i++){
+    analogWrite(led,i);
+    delay(10);
+  }
+   for(int i = 255; i>=0;i--){
+    analogWrite(led,i);
+    delay(10);
+  }
+}
+Stimulation 4
+int led = 10;
+void setup(){
+  pinMode(led,OUTPUT);
+}
+
+void loop(){
+  for(int i=0;i<=255; i++){
+    analogWrite(led,i);
+    delay(10);
+  }
+   for(int i = 255; i>=0;i--){
+    analogWrite(led,i);
+    delay(10);
+  }
+}
+Stimulation 5
+
+int led = 10;
+int sns = 5;
+
+void setup(){
+  pinMode(led,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+  int x = analogRead(sns);
+  Serial.println(x);
+  if(x<200){
+    digitalWrite(led,HIGH);
+  }
+  else{
+    digitalWrite(led,LOW);
+  }
+}
+Stimulation 6(29,DEC,2020)
+
+void setup()
+{
+  pinMode(8, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(2, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(8, HIGH);
+  digitalWrite(3, LOW);
+  digitalWrite(2, LOW);
+  delay(2000); // Wait for 2000 millisecond(s)
+  digitalWrite(8, LOW);
+  digitalWrite(3, HIGH);
+  digitalWrite(2, LOW);
+  delay(2000); // Wait for 2000 millisecond(s)
+  digitalWrite(8, LOW);
+  digitalWrite(3, LOW);
+  digitalWrite(2, HIGH);
+  delay(2000); // Wait for 2000 millisecond(s)
+}
+
+
+Stimulation-1(Dec29)
+
+#include <Servo.h>
+
+int position = 0;
+
+int i = 0;
+
+int j = 0;
+
+Servo servo_9;
+
+Servo servo_0;
+
+void setup()
+{
+  servo_9.attach(9, 500, 2500);
+
+  servo_0.attach(0, 500, 2500);
+
+}
+
+void loop()
+{
+  position = 0;
+  for (position = 1; position <= 179; position += 1) {
+    servo_9.write(position);
+    delay(20); // Wait for 20 millisecond(s)
+  }
+  for (j = 179; j >= 1; j -= 1) {
+    servo_0.write(0);
+  }
+}
